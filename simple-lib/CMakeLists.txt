@@ -4,6 +4,6 @@ project(SimpleLib)
 
 include_directories(include)
 
-file(GLOB_RECURSE sources "src/*.c" "src/*.cpp")
+file(GLOB_RECURSE sources "src/*.c")
 
 add_library(${PROJECT_NAME} STATIC ${sources})

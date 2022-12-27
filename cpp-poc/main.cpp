@@ -1,4 +1,3 @@
-#include <iostream>
 extern "C" {
 #include <library.h>
 }

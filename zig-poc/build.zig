@@ -14,9 +14,15 @@ pub fn build(b: *std.build.Builder) void {
     const lib_path = "../simple-lib";
 
     const exe = b.addExecutable("zig-poc", "src/main.zig");
+
+    const cFlags = [_][]const u8{};
     exe.addIncludePath(lib_path ++ "/include");
-    exe.addLibraryPath(lib_path ++ "/build");
-    exe.linkSystemLibrary("SimpleLib");
+
+    // Since zig compiler also supports C we can directly add our C files
+    exe.addCSourceFile(lib_path ++ "/src/library.c", &cFlags);
+    // Alternatively we can link against binarys that already exist, like so (useful when vendors provide blobs):
+    // exe.addLibraryPath(lib_path ++ "/build");
+    // exe.linkSystemLibrary("SimpleLib");
     exe.setTarget(target);
     exe.setBuildMode(mode);
     exe.install();

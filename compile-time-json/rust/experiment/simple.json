@@ -1,0 +1,8 @@
+{
+  "key1": [0,1,2,3,4],
+  "key2": 101,
+  "key3": "value 😋",
+  "key4": {
+    "weNesting": "stuff"
+  }
+}
